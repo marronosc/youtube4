@@ -1,9 +1,21 @@
 #!/bin/bash
-# Script de construcción para Render
-echo "Instalando dependencias..."
+set -e  # Salir si hay algún error
+
+echo "=== INICIO DEL BUILD ==="
+echo "Python version:"
+python --version
+
+echo "Pip version:"
+pip --version
+
+echo "=== INSTALANDO DEPENDENCIAS ==="
+pip install --upgrade pip
 pip install -r requirements.txt
 
-echo "Configurando la aplicación..."
-# Aquí puedes añadir cualquier otro paso de configuración necesario
+echo "=== VERIFICANDO INSTALACIONES ==="
+pip list | grep -E "(Flask|requests|gunicorn)"
 
-echo "Build completado exitosamente!"
+echo "=== ESTRUCTURA DE ARCHIVOS ==="
+ls -la
+
+echo "=== BUILD COMPLETADO ==="
