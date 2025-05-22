@@ -10,12 +10,17 @@ pip --version
 
 echo "=== INSTALANDO DEPENDENCIAS ==="
 pip install --upgrade pip
+echo "Installing requirements from requirements.txt..."
 pip install -r requirements.txt
 
 echo "=== VERIFICANDO INSTALACIONES ==="
-pip list | grep -E "(Flask|requests|gunicorn)"
+echo "Packages installed:"
+pip list
+
+echo "=== VERIFICANDO FLASK ESPECÍFICAMENTE ==="
+python -c "import flask; print('Flask version:', flask.__version__)"
 
 echo "=== ESTRUCTURA DE ARCHIVOS ==="
 ls -la
 
-echo "=== BUILD COMPLETADO ==="
+echo "=== BUILD COMPLETADO EXITOSAMENTE ==="
